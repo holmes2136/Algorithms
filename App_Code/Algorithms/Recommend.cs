@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections;
 
 
+namespace Algorithms { 
 /// <summary>
 /// Recommend 的摘要描述
 /// </summary>
@@ -47,4 +48,6 @@ public class Recommend
 
     }
 
+  
+}
 }
