@@ -14,8 +14,8 @@ public partial class TestIsStringSimilarty : System.Web.UI.Page
         string s1 = "Holmes";
         string s2 = "Holmes2136";
 
-        JaroWinklerDistance jw = new JaroWinklerDistance();
-        Response.Write(jw.GetDistance(s1,s2));
+        
+        Response.Write(JaroWinklerDistance.GetDistance(s1,s2));
 
 
         

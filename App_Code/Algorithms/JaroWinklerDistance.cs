@@ -4,13 +4,12 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// JaroWinklerDistance 的摘要描述
+/// An Algorithm for get the similarty between two string
+/// Base on http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance
 /// </summary>
-public class JaroWinklerDistance
+public static class JaroWinklerDistance
 {
-    private float threshold = 0.7f;
-
-	public JaroWinklerDistance(){}
+    private const float threshold = 0.7f;
 
 
     private static int[] Matches(String s1, String s2)
@@ -96,8 +95,16 @@ public class JaroWinklerDistance
     }
 
 
-
-    public  float GetDistance(String s1, String s2)
+    /// <summary>
+    ///                       1        m      m      m - t      
+    /// (Jaro Distance) j =  --- * (  ---  + ---  + ------- )
+    ///                       3       |s1|   |s2|      m
+    /// The distance is symmetric and will fall in the range 0 (perfect match) to 1 (no match)
+    /// </summary>
+    /// <param name="s1">First String</param>
+    /// <param name="s2">Second String</param>
+    /// <returns></returns>
+    public  static float GetDistance(String s1, String s2)
     {
         var mtp = Matches(s1, s2);
         var m = (float)mtp[0];
@@ -106,14 +113,8 @@ public class JaroWinklerDistance
             return 0f;
 
         float j = ((m / s1.Length + m / s2.Length + (m - mtp[1]) / m)) / 3;
-        float jw = j < Threshold ? j : j + Math.Min(0.1f, 1f / mtp[3]) * mtp[2] * (1 - j);
+        float jw = j < JaroWinklerDistance.threshold ? j : j + Math.Min(0.1f, 1f / mtp[3]) * mtp[2] * (1 - j);
         return jw;
-    }
-
-    public float Threshold
-    {
-        get { return threshold; }
-        set { this.threshold = value; }
     }
 
 
