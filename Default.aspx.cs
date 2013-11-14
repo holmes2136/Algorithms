@@ -20,5 +20,14 @@ public partial class _Default : System.Web.UI.Page
         //double val = ba.CalculateProb(dict);
         //Response.Write(val);
 
+        int[] x = new int[] { 1, 2, 3, 4, 5, 7 };
+
+        int[] y = new int[] { 1, 2, 3, 4, 5, 6 };
+ 
+
+        var transpositions = x.Where((t, mi) => t != y[mi]).Count();
+
+        Response.Write(transpositions);
+
     }
 }
