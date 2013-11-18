@@ -17,7 +17,13 @@ public partial class TestIsStringSimilarty : System.Web.UI.Page
         
         Response.Write(JaroWinklerDistance.GetDistance(s1,s2));
 
+        Response.Write("<BR>");
 
-        
+        Response.Write(new LevenshteinDistance().GetDistance(s1,s2));
+
+        Response.Write("<BR>");
+
+       
+
     }
 }
