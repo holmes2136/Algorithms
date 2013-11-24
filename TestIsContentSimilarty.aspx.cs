@@ -81,16 +81,15 @@ What I tried to do was raise awareness of sudden cardiac arrest, having a defibr
         //建立字庫
         BuildIndex(s1, s2);
 
-        //取得 s1 字串所有單字和單字字頻
+        //取得 s1 字串所有單字的字頻
         Hashtable val = GetTFIDF();
 
-        //取得 s2 字串所有單字和單字字頻
+        //取得 s2 字串所有單字的字頻
         Hashtable val2 = GetTFIDF2();
 
         
         //取得 兩個字串的 cosine similarty
-        TFIDF cos = new TFIDF();
-        Response.Write(string.Format("Cosine Similarty : {0} ", cos.cosineSimilarityByTermFreq(TotalNoun, val, val2)));
+        Response.Write(string.Format("Cosine Similarty : {0} ", TFIDF.cosineSimilarityByTermFreq(TotalNoun, val, val2)));
       
        
         

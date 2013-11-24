@@ -25,7 +25,7 @@ namespace Algorithms
         /// <param name="docVector1">s1所有文字以及字頻</param>
         /// <param name="docVector2">s2所有文字以及字頻</param>
         /// <returns></returns>
-        public double cosineSimilarityByTermFreq(List<string> TotalNoun, 
+        public static double cosineSimilarityByTermFreq(List<string> TotalNoun, 
                                        Hashtable docVector1,
                                        Hashtable docVector2)
         {
