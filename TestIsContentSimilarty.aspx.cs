@@ -90,7 +90,7 @@ What I tried to do was raise awareness of sudden cardiac arrest, having a defibr
         
         //取得 兩個字串的 cosine similarty
         TFIDF cos = new TFIDF();
-        Response.Write(string.Format("Cosine Similarty : {0} ",cos.cosineSimilarity(TotalNoun,val, val2)));
+        Response.Write(string.Format("Cosine Similarty : {0} ", cos.cosineSimilarityByTermFreq(TotalNoun, val, val2)));
       
        
         
