@@ -18,6 +18,18 @@ namespace Algorithms
             
         }
 
+
+        /// <summary>
+        /// wf = tf + log tf
+        /// </summary>
+        /// <returns></returns>
+        public static float WF(float tf) {
+
+            return (float)(tf + Math.Log(tf));
+
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -26,8 +38,8 @@ namespace Algorithms
         /// <param name="docVector2">s2所有文字以及字頻</param>
         /// <returns></returns>
         public static double cosineSimilarityByTermFreq(List<string> TotalNoun, 
-                                       Hashtable docVector1,
-                                       Hashtable docVector2)
+                                                        Hashtable docVector1,
+                                                        Hashtable docVector2)
         {
      
             double dotProduct = 0.0;
@@ -57,6 +69,68 @@ namespace Algorithms
                 magnitude1 += Math.Pow(x, 2);
                 magnitude2 += Math.Pow(y, 2);              
            
+            }
+
+            //平方
+            magnitude1 = Math.Sqrt(magnitude1);
+            magnitude2 = Math.Sqrt(magnitude2);
+
+            if (magnitude1 != 0.0 | magnitude2 != 0.0)
+            {
+                cosineSimilarity = dotProduct / (magnitude1 * magnitude2);
+            }
+            else
+            {
+                return 0.0;
+            }
+            return cosineSimilarity;
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="TotalNoun">所有的單字</param>
+        /// <param name="docVector1">s1所有文字以及字頻</param>
+        /// <param name="docVector2">s2所有文字以及字頻</param>
+        /// <returns></returns>
+        public static double cosineSimilarityByTFIDF(List<string> TotalNoun,
+                                                        Hashtable docVector1,
+                                                        Hashtable docVector2)
+        {
+
+            double dotProduct = 0.0;
+            double magnitude1 = 0.0;
+            double magnitude2 = 0.0;
+            double cosineSimilarity = 0.0;
+
+            for (int i = 0; i <= TotalNoun.Count - 1; i++)
+            {
+                float x, y;
+
+                if (docVector1.Contains(TotalNoun[i]))
+                {
+                    x = (float)docVector1[TotalNoun[i]];
+                }
+                else
+                {
+                    x = 0;
+                }
+
+                if (docVector2.Contains(TotalNoun[i]))
+                {
+                    y = (float)docVector2[TotalNoun[i]];
+                }
+                else
+                {
+                    y = 0;
+                }
+
+                dotProduct += x * y;
+                magnitude1 += Math.Pow(x, 2);
+                magnitude2 += Math.Pow(y, 2);
+
             }
 
             //平方
