@@ -4,7 +4,7 @@ Algorithms
 
 有關餘弦相似性的方法集中在 TFIDF Class :
 
-(1)cosineSimilarityByTermFreq 是單純採用單純"字頻"的方式計算餘弦相似性
+(1)cosineSimilarityByTermFreq 單純採用"字頻"的方式計算餘弦相似性
 
 (2)cosineSimilarityByTFIDF 使用 TF-IDF 來計算餘弦相似性 , 
 適合使用在已經建立特定領域的語料庫的情況下 , 例如今天我們是要比對兩則新聞 , 
