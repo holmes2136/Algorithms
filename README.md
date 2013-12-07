@@ -2,7 +2,7 @@ Algorithms
 ==========
 
 
-有關餘弦相似性的方法集中在 TFIDF Class :
+有關[餘弦相似性](http://en.wikipedia.org/wiki/Cosine_similarity)的方法集中在 TFIDF Class :
 
 cosineSimilarityByTermFreq 
 
