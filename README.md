@@ -23,6 +23,7 @@ cosineSimilarityByWFIDF
 ==========
 
 
+其他
 
 ```
 另外在使用 以上 方法時 , 筆者使用了 Lucene.Net 3.03 , 其必須在
